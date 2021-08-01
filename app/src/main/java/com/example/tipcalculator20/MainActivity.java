@@ -11,6 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText billTotal;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup groupButtons;
     Button calcButton;
     TextView totalIndv;
+    DecimalFormat df = new DecimalFormat("###.##");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View view) {
-        Double totalBill;
-        Double totalTip = 0.0;
+        double totalBill;
+        double totalTip = 0.0;
         //Double tipPerPerson = 0.0;
-        Double goodTip = 0.15;
-        Double greatTip = 0.2;
-        Double amazingTip = 0.25;
+        double goodTip = 0.15;
+        double greatTip = 0.2;
+        double amazingTip = 0.25;
 
         totalBill = Double.parseDouble(billTotal.getText().toString()); //get the entered total decimal amount
 
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }*/
 
         totalIndv.setVisibility(View.VISIBLE);
-        totalIndv.setText("Total Tip: " + totalTip.toString());
+        totalIndv.setText("Total Tip: " + df.format(totalTip));
         //textViewResult2.setText("Tip Per Person: " + tipPerPerson.toString());
     }
 

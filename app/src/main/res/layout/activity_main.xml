@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8CEE8"
     tools:context=".MainActivity">
 
     <TextView
@@ -11,8 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="39dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="casual"
         android:text="Receipt Total"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#593385"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/calcButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +28,10 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:ems="10"
+        android:fontFamily="sans-serif"
         android:hint="x.xx"
         android:inputType="number|numberDecimal"
+        android:textColor="#141981"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -45,19 +52,26 @@
             android:id="@+id/radioButton15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="15%" />
+            android:fontFamily="sans-serif"
+            android:text="15%"
+            android:textColor="#2C1349"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/radioButton20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="20%" />
+            android:text="20%"
+            android:textColor="#2C1349"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/radioButton25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="25%" />
+            android:text="25%"
+            android:textColor="#2C1349"
+            android:textStyle="bold" />
     </RadioGroup>
 
     <Button
@@ -65,8 +79,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="396dp"
+        android:fontFamily="casual"
         android:onClick="onButtonClick"
         android:text="Calculate"
+        app:backgroundTint="#2B388A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -78,12 +94,15 @@
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginTop="60dp"
+        android:fontFamily="casual"
         android:text="TextView"
+        android:textColor="#593385"
         android:textSize="24sp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calcButton" />
+        app:layout_constraintTop_toBottomOf="@+id/calcButton"
+        tools:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
