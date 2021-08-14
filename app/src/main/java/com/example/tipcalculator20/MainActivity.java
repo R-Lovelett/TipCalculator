@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -20,9 +21,12 @@ public class MainActivity extends AppCompatActivity {
     RadioButton button20;
     RadioButton button25;
     RadioGroup groupButtons;
+    Spinner partyNum;
     Button calcButton;
     TextView totalIndv;
+    TextView totalGroup;
     DecimalFormat df = new DecimalFormat("###.##");
+    Calculation calculate = new Calculation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +38,19 @@ public class MainActivity extends AppCompatActivity {
         button20 = (RadioButton) findViewById(R.id.radioButton20);
         button25 = (RadioButton) findViewById(R.id.radioButton25);
         groupButtons = (RadioGroup) findViewById(R.id.radioGroup);
+        partyNum = (Spinner) findViewById(R.id.spinner);
         calcButton = (Button) findViewById(R.id.calcButton);
         totalIndv = (TextView) findViewById(R.id.totalTipIndv);
+        totalGroup = (TextView) findViewById(R.id.totalTipGroup);
+
 
     }
 
     public void onButtonClick(View view) {
         double totalBill;
         double totalTip = 0.0;
-        //Double tipPerPerson = 0.0;
+        int numPeople = partyNum.getSelectedItemPosition() + 1;
+        double tipPerPerson = 0.0;
         double goodTip = 0.15;
         double greatTip = 0.2;
         double amazingTip = 0.25;
@@ -50,31 +58,24 @@ public class MainActivity extends AppCompatActivity {
         totalBill = Double.parseDouble(billTotal.getText().toString()); //get the entered total decimal amount
 
         if (button15.isChecked()) {
-            totalTip = totalBill * goodTip;
+            totalTip = calculate.individualTip(totalBill, goodTip);
         }
         else if (button20.isChecked()) {
-            totalTip = totalBill * greatTip;
+            totalTip = calculate.individualTip(totalBill, greatTip);
         }
         else if(button25.isChecked()){
-            totalTip = totalBill * amazingTip;
+            totalTip = calculate.individualTip(totalBill, amazingTip);
         }
 
-        /*if(oneButton.isChecked()) {
-            tipPerPerson = totalTip / 1;
+        totalGroup.setVisibility(View.INVISIBLE);
+        if (numPeople > 1) {
+            tipPerPerson = calculate.groupTip(numPeople, totalTip);
+            totalGroup.setVisibility(View.VISIBLE);
         }
-        else if (twoButton.isChecked()) {
-            tipPerPerson = totalTip / 2;
-        }
-        else if(threeButton.isChecked()) {
-            tipPerPerson = totalTip / 3;
-        }
-        else if(fourButton.isChecked()) {
-            tipPerPerson = totalTip / 4;
-        }*/
 
         totalIndv.setVisibility(View.VISIBLE);
-        totalIndv.setText("Total Tip: " + df.format(totalTip));
-        //textViewResult2.setText("Tip Per Person: " + tipPerPerson.toString());
+        totalIndv.setText("Total Tip: $" + df.format(totalTip));
+        totalGroup.setText("Tip Per Person: $" + df.format(tipPerPerson));
     }
 
 }
