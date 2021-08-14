@@ -22,5 +22,5 @@ revisit the idea of a tip calculator again and this time see if I could build it
 - Tying view components to java variables by Id
 
 # Future Expansion
-- A set of buttons to split a tip between multiple people to display seperately
-- Bug testing (especially for no amount entered and no buttons selected when Calculate button pressed)
+- [x] A set of buttons to split a tip between multiple people to display seperately
+- [ ] Bug testing (especially for no amount entered and no buttons selected when Calculate button pressed)
