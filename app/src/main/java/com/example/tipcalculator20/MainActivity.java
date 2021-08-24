@@ -2,6 +2,7 @@ package com.example.tipcalculator20;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("WrongConstant")
     public void onButtonClick(View view) {
         double totalBill;
         double totalTip = 0.0;
@@ -55,27 +58,30 @@ public class MainActivity extends AppCompatActivity {
         double greatTip = 0.2;
         double amazingTip = 0.25;
 
-        totalBill = Double.parseDouble(billTotal.getText().toString()); //get the entered total decimal amount
+        try{
+            totalBill = Double.parseDouble(billTotal.getText().toString()); //get the entered total decimal amount
 
-        if (button15.isChecked()) {
-            totalTip = calculate.individualTip(totalBill, goodTip);
-        }
-        else if (button20.isChecked()) {
-            totalTip = calculate.individualTip(totalBill, greatTip);
-        }
-        else if(button25.isChecked()){
-            totalTip = calculate.individualTip(totalBill, amazingTip);
-        }
+            if (button15.isChecked()) {
+                totalTip = calculate.individualTip(totalBill, goodTip);
+            }
+            else if (button20.isChecked()) {
+                totalTip = calculate.individualTip(totalBill, greatTip);
+            }
+            else if(button25.isChecked()){
+                totalTip = calculate.individualTip(totalBill, amazingTip);
+            }
 
-        totalGroup.setVisibility(View.INVISIBLE);
-        if (numPeople > 1) {
-            tipPerPerson = calculate.groupTip(numPeople, totalTip);
-            totalGroup.setVisibility(View.VISIBLE);
+            totalGroup.setVisibility(View.INVISIBLE);
+            if (numPeople > 1) {
+                tipPerPerson = calculate.groupTip(numPeople, totalTip);
+                totalGroup.setVisibility(View.VISIBLE);
+            }
+        } catch(Exception ex) {
+            Toast.makeText(this, "Enter Valid Number", 6).show();
+        } finally {
+            totalIndv.setVisibility(View.VISIBLE);
+            totalIndv.setText("Total Tip: $" + df.format(totalTip));
+            totalGroup.setText("Tip Per Person: $" + df.format(tipPerPerson));
         }
-
-        totalIndv.setVisibility(View.VISIBLE);
-        totalIndv.setText("Total Tip: $" + df.format(totalTip));
-        totalGroup.setText("Tip Per Person: $" + df.format(tipPerPerson));
     }
-
 }
