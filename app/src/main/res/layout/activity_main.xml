@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8CEE8"
+    android:background="#E3FBFF"
+    android:textAlignment="textStart"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="39dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="casual"
-        android:text="Receipt Total"
+        android:fontFamily="sans-serif-medium"
+        android:text="Receipt Total:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#593385"
+        android:textColor="#135A50"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/calcButton"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +33,7 @@
         android:fontFamily="sans-serif"
         android:hint="x.xx"
         android:inputType="number|numberDecimal"
-        android:textColor="#141981"
+        android:textColor="#082B26"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -53,7 +55,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="15%"
-            android:textColor="#2C1349"
+            android:textColor="#082B26"
             android:textStyle="bold" />
 
         <RadioButton
@@ -61,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="20%"
-            android:textColor="#2C1349"
+            android:textColor="#082B26"
             android:textStyle="bold" />
 
         <RadioButton
@@ -69,20 +71,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="25%"
-            android:textColor="#2C1349"
+            android:textColor="#082B26"
             android:textStyle="bold" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="201dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-light"
         android:text="Number of People:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#593385"
+        android:textColor="#135A50"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,12 +92,14 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="132dp"
-        android:layout_height="49dp"
+        android:layout_width="91dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:entries="@array/party_number"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -104,11 +108,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="288dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-thin"
         android:onClick="onButtonClick"
         android:text="Calculate"
         android:textStyle="bold"
-        app:backgroundTint="#2B388A"
+        app:backgroundTint="#19225C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -120,9 +124,9 @@
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif"
         android:text="TextView"
-        android:textColor="#593385"
+        android:textColor="#082B26"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,9 +140,9 @@
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginTop="76dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif"
         android:text="TextView"
-        android:textColor="#593385"
+        android:textColor="#082B26"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
