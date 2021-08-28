@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3FBFF"
+    android:background="@color/bgColor"
     android:textAlignment="textStart"
     tools:context=".MainActivity">
 
@@ -17,7 +17,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Receipt Total:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#135A50"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/calcButton"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="15%"
-            android:textColor="#082B26"
+            android:textColor="@color/textColor"
             android:textStyle="bold" />
 
         <RadioButton
@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="20%"
-            android:textColor="#082B26"
+            android:textColor="@color/textColor"
             android:textStyle="bold" />
 
         <RadioButton
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="25%"
-            android:textColor="#082B26"
+            android:textColor="@color/textColor"
             android:textStyle="bold" />
     </RadioGroup>
 
@@ -84,7 +84,7 @@
         android:fontFamily="sans-serif-light"
         android:text="Number of People:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#135A50"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,8 +111,9 @@
         android:fontFamily="sans-serif-thin"
         android:onClick="onButtonClick"
         android:text="Calculate"
+        android:textColor="@color/buttonText"
         android:textStyle="bold"
-        app:backgroundTint="#19225C"
+        app:backgroundTint="@color/buttonBG"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -126,7 +127,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="sans-serif"
         android:text="TextView"
-        android:textColor="#082B26"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +143,7 @@
         android:layout_marginTop="76dp"
         android:fontFamily="sans-serif"
         android:text="TextView"
-        android:textColor="#082B26"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"

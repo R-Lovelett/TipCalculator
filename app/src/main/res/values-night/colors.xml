@@ -8,8 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!--My colors-->
-    <color name="bgColor">#E3FBFF</color>
-    <color name="textColor">#135A50</color>
-    <color name="buttonBG">#19225C</color>
-    <color name="buttonText">#F8F8F8</color>
+    <color name="bgColor">#031D29</color>
+    <color name="textColor">#B6F0E7</color>
+    <color name="buttonBG">#D6D0F5</color>
+    <color name="buttonText">#000000</color>
 </resources>
