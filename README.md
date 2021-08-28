@@ -1,7 +1,7 @@
 # TipCalculator
 A simple app that helps the user calculate how much to leave as a tip to your server after having a nice meal at a restaurant.
 
-# Version: 2.0
+# Version: 2.1
 Version 1.0 release date: Feb, 2017
 
 # Project Run Instructions
@@ -23,4 +23,5 @@ revisit the idea of a tip calculator again and this time see if I could build it
 
 # Future Expansion
 - [x] A set of buttons to split a tip between multiple people to display seperately
-- [ ] Bug testing (especially for no amount entered and no buttons selected when Calculate button pressed)
+- [x] Bug testing (especially for no amount entered and no buttons selected when Calculate button pressed)
+- [ ] Compatibility with Dark Mode - currently inverts text color for text field, button, and spinner.
