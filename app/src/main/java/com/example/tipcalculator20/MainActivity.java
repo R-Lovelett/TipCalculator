@@ -52,10 +52,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * When Calculate button is clicked, take in user input from
-     * editText, button group, and spinner to perform percentage math
-     * calculation and display results accordingly in text view components.
-     * @param view
+     * Takes in user input from editText, button group, and spinner to
+     * perform percentage math calculation and display results accordingly in text view components.
+     * @param view App view
      */
     @SuppressLint("WrongConstant")
     public void onButtonClick(View view) {
