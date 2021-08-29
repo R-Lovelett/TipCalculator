@@ -10,6 +10,7 @@
     <!--My colors-->
     <color name="bgColor">#E3FBFF</color>
     <color name="textColor">#135A50</color>
+    <color name="editColor">#082B26</color>
     <color name="buttonBG">#19225C</color>
     <color name="buttonText">#F8F8F8</color>
 </resources>
