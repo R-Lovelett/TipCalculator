@@ -33,6 +33,7 @@
         android:fontFamily="sans-serif"
         android:hint="x.xx"
         android:inputType="number|numberDecimal"
+        android:maxLength="10"
         android:textColor="@color/editColor"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"

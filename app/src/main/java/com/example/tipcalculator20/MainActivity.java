@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -40,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM); //follow system dark mode settings to update color palette
         setContentView(R.layout.activity_main);
 
-        billTotal = (EditText) findViewById(R.id.inputTotal);
-        button15 = (RadioButton) findViewById(R.id.radioButton15);
-        button20 = (RadioButton) findViewById(R.id.radioButton20);
-        button25 = (RadioButton) findViewById(R.id.radioButton25);
-        groupButtons = (RadioGroup) findViewById(R.id.radioGroup);
-        partyNum = (Spinner) findViewById(R.id.spinner);
-        calcButton = (Button) findViewById(R.id.calcButton);
-        totalIndv = (TextView) findViewById(R.id.totalTipIndv);
-        totalGroup = (TextView) findViewById(R.id.totalTipGroup);
+        billTotal = findViewById(R.id.inputTotal);
+        button15 = findViewById(R.id.radioButton15);
+        button20 = findViewById(R.id.radioButton20);
+        button25 = findViewById(R.id.radioButton25);
+        groupButtons = findViewById(R.id.radioGroup);
+        partyNum = findViewById(R.id.spinner);
+        calcButton = findViewById(R.id.calcButton);
+        totalIndv = findViewById(R.id.totalTipIndv);
+        totalGroup = findViewById(R.id.totalTipGroup);
     }
 
     /**
@@ -92,9 +95,22 @@ public class MainActivity extends AppCompatActivity {
         } catch(Exception ex) {
             Toast.makeText(this, "Enter Valid Number", 6).show(); //Show toast error message for invalid input
         } finally {
+            hideKeyboard();
             totalIndv.setVisibility(View.VISIBLE);
             totalIndv.setText("Total Tip: $" + df.format(totalTip));
             totalGroup.setText("Tip Per Person: $" + df.format(tipPerPerson));
+        }
+    }
+
+    /**
+     * Forces the screen keyboard to hide on button-click
+     * Source: www.geeksforgeeks.org/how-to-programmatically-hide-android-soft-keyboard/
+     */
+    public void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 }
