@@ -30,3 +30,5 @@ revisit the idea of a tip calculator again and this time see if I could build it
 - [x] Compatibility with Dark Mode - currently inverts text color for text field, button, and spinner
 - [x] Maximum amount entered check - cannot enter more than a realistic number
 - [x] Keyboard goes away when Calculate button pressed
+- [ ] Multi-language support (perhaps one or two languages)
+- [ ] Multi-currency support
