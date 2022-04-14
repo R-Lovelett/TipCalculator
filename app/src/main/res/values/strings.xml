@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">TipCalculator2.0</string>
+    <string name="app_name">Tip Calculator</string>
     <string-array name="party_number">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
     </string-array>
+    <string name="receipt_total">Receipt Total:</string>
+    <string name="hint">x.xx</string>
+    <string name ="good_tip">15%</string>
+    <string name ="great_tip">20%</string>
+    <string name ="best_tip">25%</string>
+    <string name="group_count">Number of People:</string>
+    <string name="calc_button">Calculate</string>
 </resources>

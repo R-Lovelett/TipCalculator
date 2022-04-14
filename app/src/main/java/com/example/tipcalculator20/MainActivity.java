@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.text.DecimalFormat;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * The Main Activity for the application
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     DecimalFormat df = new DecimalFormat("###.##"); //The formatting for the output of the calculations
     Calculation calculate = new Calculation();
 
+    final List<String> people = Arrays.asList("One", "Two", "Three", "Four");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         calcButton = findViewById(R.id.calcButton);
         totalIndv = findViewById(R.id.totalTipIndv);
         totalGroup = findViewById(R.id.totalTipGroup);
+
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.spinner_textview, people);
+        partyNum.setAdapter(adapter);
     }
 
     /**
@@ -69,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
         double greatTip = 0.2;
         double amazingTip = 0.25;
 
-        /**
-         * In case user enters no amount in edit text field, catch thrown exception and
-         * give error message for invalid number entry. Else, perform percentage calculations
-         * and display results.
+        /*
+          In case user enters no amount in edit text field, catch thrown exception and
+          give error message for invalid number entry. Else, perform percentage calculations
+          and display results.
          */
         try{
             totalBill = Double.parseDouble(billTotal.getText().toString()); //get the entered total decimal amount
@@ -87,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 totalTip = calculate.individualTip(totalBill, amazingTip);
             }
 
+            totalIndv.setVisibility(View.VISIBLE);
             totalGroup.setVisibility(View.INVISIBLE); //Incase user goes from group to individual tip, hide all result text views
             if (numPeople > 1) { //If party is more than one, display group tip along with individual tip
                 tipPerPerson = calculate.groupTip(numPeople, totalTip);
@@ -96,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Enter Valid Number", 6).show(); //Show toast error message for invalid input
         } finally {
             hideKeyboard();
-            totalIndv.setVisibility(View.VISIBLE);
             totalIndv.setText("Total Tip: $" + df.format(totalTip));
             totalGroup.setText("Tip Per Person: $" + df.format(tipPerPerson));
         }
